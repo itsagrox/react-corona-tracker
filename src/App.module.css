@@ -1,0 +1,45 @@
+body{
+    background-color: rgba(238, 230, 115, 0.1);
+    
+}
+.demo{
+    opacity: 0.1 !important;
+    position: absolute;
+    width: 100%;
+    height: auto;
+  }
+
+.container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.image{
+    width: 370px;
+    margin-top: 50px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.desc{
+    color: rgb(236, 44, 10);
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.h5{
+    color: rgb(116, 115, 115);
+    margin-bottom: 1%;
+}
+
+@media(max-width:770px){
+    .container{
+        margin:0 10%
+    }
+    .image{
+        width: 100%;
+    }
+}
