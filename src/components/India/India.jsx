@@ -3,9 +3,9 @@ import { Line } from "react-chartjs-2";
 import axios from 'axios';
 import styles from './India.module.css'
 import logoBlack from '../../images/logoBlack.svg'
-
-
-
+import { Card, CardContent, Typography, Grid } from '@material-ui/core'
+import CountUp from 'react-countup'
+import cx from 'classnames'
 
 const India = ({ dataIndia }) => {
 
@@ -23,7 +23,6 @@ const India = ({ dataIndia }) => {
         }
         fetchAPI();
     }, []);
-
 
     const lineChart = (
 
@@ -53,6 +52,7 @@ const India = ({ dataIndia }) => {
 
     );
 
+
     console.log("DailyData", totalData)
     console.log("Statewise", stateWise)
 
@@ -61,7 +61,57 @@ const India = ({ dataIndia }) => {
         <img className={styles.image} src={logoBlack} alt="Covid-19 Tracker" />
         <div className={styles.container} >
 
-            {lineChart}
+            <Grid container spacing={3} justify="center">
+                <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.infected)}>
+                    <CardContent>
+                        <Typography color="textSecondary" gutterBottom>Infected </Typography>
+                        <Typography variant="h5">
+                            <CountUp
+                                start={0}
+                                end={100}
+                                duration={2}
+                                seperator=","
+                            />
+                        </Typography>
+                        <Typography color="textSecondary">10th May</Typography>
+                        <Typography variant="body2">Total number of active cases of Covid-19</Typography>
+                    </CardContent>
+                </Grid>
+                <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.recovered)}>
+                    <CardContent>
+                        <Typography color="textSecondary" gutterBottom>Recovered </Typography>
+                        <Typography variant="h5">
+                            <CountUp
+                                start={0}
+                                end={100}
+                                duration={2}
+                                seperator=","
+                            />
+                        </Typography>
+                        <Typography color="textSecondary">10th May</Typography>
+                        <Typography variant="body2">Total number of recoveries from Covid-19</Typography>
+                    </CardContent>
+                </Grid>
+                <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.deaths)}>
+                    <CardContent>
+                        <Typography color="textSecondary" gutterBottom>Deaths </Typography>
+                        <Typography variant="h5">
+                            <CountUp
+                                start={0}
+                                end={100}
+                                duration={2}
+                                seperator=","
+                            />
+                        </Typography>
+                        <Typography color="textSecondary">10th May</Typography>
+                        <Typography variant="body2">Total number of deaths caused by Covid-19</Typography>
+                    </CardContent>
+                </Grid>
+            </Grid>
+            <div className={styles.chart}>
+                {lineChart}
+            </div>
+
 
         </div >
     </>
