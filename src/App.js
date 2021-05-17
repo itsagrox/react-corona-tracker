@@ -5,12 +5,13 @@ import { fetchData } from './api'
 import image from './corona.png'
 import Navbar from './components/Navbar/Navbar'
 import Homepage from './components/Homepage/Homepage'
+import India from './components/India/India'
 
 class App extends React.Component {
 
     state = {
         data: {},
-        country: ''
+        country: 'Global'
     }
 
     async componentDidMount() {
@@ -32,9 +33,11 @@ class App extends React.Component {
                 <Navbar />
                 <Switch>
                     <div className={styles.container}>
-                        <Homepage data={data} country={country} handleCountryChange={this.handleCountryChange} />
-                        <img className={styles.demo} src={image} />
+                        <Route exact path='/' component={() => <Homepage data={data} country={country} handleCountryChange={this.handleCountryChange} />} />
+                        <Route exact path='/india' component={() => <India />} />
+                        <img className={styles.demo} src={image} alt="background" />
                     </div>
+
                 </Switch>
             </BrowserRouter>
         )

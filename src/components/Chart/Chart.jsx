@@ -46,7 +46,7 @@ const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
                         datasets: [{
                             label: 'People',
                             backgroundColor: [
-                                'rgba(255,0,0,0.5)',
+                                'rgba(4, 181, 235,0.5)',
                                 'rgba(5, 206, 105, 0.8)',
                                 'rgba(241, 63, 31, 0.8)',
                             ],

@@ -7,6 +7,8 @@ body{
     position: absolute;
     width: 100%;
     height: auto;
+    animation: mymove 100s infinite linear;
+   
   }
 
 .container{
@@ -18,13 +20,17 @@ body{
 }
 
 .image{
+    z-index: 50;
     width: 370px;
     margin-top: 50px;
     margin-bottom: 0;
     padding-bottom: 0;
+    
 }
 
+
 .desc{
+    z-index: 50;
     color: rgb(236, 44, 10);
     margin-top: 0;
     padding-top: 0;
@@ -43,3 +49,6 @@ body{
         width: 100%;
     }
 }
+@keyframes mymove {
+    100% {transform: rotate(360deg);
+    } }

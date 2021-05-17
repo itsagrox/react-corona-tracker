@@ -1,5 +1,6 @@
 .container{
     margin:50px 0;
+    margin-top: 0;
 }
 
 .card{
@@ -19,6 +20,14 @@
 .deaths{
     border-top:10px solid rgba(241, 63, 31, 0.8);
     background-color: rgba(247, 203, 203,0.6) !important
+}
+
+.dataDesc{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    color: rgba(255, 51, 0, 0.678);
 }
 
 @media(max-width:770px){

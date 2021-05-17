@@ -1,15 +1,18 @@
 import React from 'react'
-import { Card, CardContent, Typography, Grid, StylesProvider } from '@material-ui/core'
+import { Card, CardContent, Typography, Grid } from '@material-ui/core'
 import styles from './Cards.module.css'
 import CountUp from 'react-countup'
 import cx from 'classnames'
 
-function Cards({ data: { confirmed, recovered, deaths, lastUpdate } }) {
+function Cards({ data: { confirmed, recovered, deaths, lastUpdate }, country }) {
     if (!confirmed) {
         return 'Loading...'
     }
     return (
         <div className={styles.container}>
+            <div className={styles.dataDesc}>{country ==='Global'? <h5> Global Data</h5> :
+                <h5 >Data for {country}</h5>}</div>
+
             <Grid container spacing={3} justify="center">
                 <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.infected)}>
                     <CardContent>
@@ -57,7 +60,7 @@ function Cards({ data: { confirmed, recovered, deaths, lastUpdate } }) {
                     </CardContent>
                 </Grid>
             </Grid>
-        </div>
+        </div >
     )
 }
 

@@ -13,7 +13,7 @@ export const fetchData = async (country) => {
             confirmed,
             recovered,
             deaths,
-            lastUpdate
+            lastUpdate,
         }
         return modifiedData;
     } catch (error) {
