@@ -1,0 +1,21 @@
+.container{
+    z-index: 50;
+    display:flex;
+    justify-content:center;
+    width:85%;
+}
+
+.image{
+    z-index: 50;
+    width: 370px;
+    margin-top: 50px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    
+}
+
+@media(max-width:770px){
+    .container{
+        width:100%
+    }
+}

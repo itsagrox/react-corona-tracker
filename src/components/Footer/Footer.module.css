@@ -1,0 +1,12 @@
+.main{
+    margin-top: 100%;
+    display: none;
+}
+
+@media(max-width:995px){
+    .main{
+       display: block;
+       padding-bottom: 0;
+       margin-bottom: 0;
+    }
+}

@@ -5,6 +5,7 @@ import Chart from '../Chart/Chart'
 import logoBlack from '../../images/logoBlack.svg'
 import styles from '../../App.module.css'
 
+
 function Homepage({ data, country, handleCountryChange }) {
     return (
         <>
@@ -13,7 +14,7 @@ function Homepage({ data, country, handleCountryChange }) {
             <p className={styles.desc}>The covid-19 tracking application.</p>
             <h5 className={styles.h5}>Please select the country for data</h5>
             <CountryPicker handleCountryChange={handleCountryChange} />
-            <Cards data={data} country={country}/>
+            <Cards data={data} country={country} />
             <Chart data={data} country={country} />
         </>
     )
