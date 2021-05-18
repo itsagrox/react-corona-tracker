@@ -1,28 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import { Line } from "react-chartjs-2";
-import axios from 'axios';
 import styles from './India.module.css'
 import logoBlack from '../../images/logoBlack.svg'
 import { Card, CardContent, Typography, Grid } from '@material-ui/core'
 import CountUp from 'react-countup'
 import cx from 'classnames'
 
-const India = ({ dataIndia }) => {
+const India = () => {
 
     const urlIndia = 'https://api.covid19india.org/data.json'
     const [totalData, seTotalData] = useState([]);
-    const [stateWise, setStateWise] = useState([]);
+    const [total, setTotal] = useState(0)
+    const [recovered, setRecovered] = useState(0)
+    const [deaths, setDeaths] = useState(0)
+
+
+
+    const fetchAPI = async () => {
+        try {
+            const res = await fetch(`${urlIndia}`);
+            const data = await res.json();
+            setTotal(data.statewise[0].confirmed)
+            setRecovered(data.statewise[0].recovered)
+            setDeaths(data.statewise[0].deaths)
+            seTotalData(data.cases_time_series)
+        }
+        catch (err) {
+            console.log(err)
+        }
+
+    }
 
     useEffect(() => {
-
-        const fetchAPI = async () => {
-
-            const { data } = await axios.get(`${urlIndia}`);
-            seTotalData(data.cases_time_series);
-            setStateWise(data.statewise);
-        }
         fetchAPI();
     }, []);
+
 
     const lineChart = (
 
@@ -53,8 +65,6 @@ const India = ({ dataIndia }) => {
     );
 
 
-    console.log("DailyData", totalData)
-    console.log("Statewise", stateWise)
 
 
     return (<>
@@ -68,7 +78,7 @@ const India = ({ dataIndia }) => {
                         <Typography variant="h5">
                             <CountUp
                                 start={0}
-                                end={100}
+                                end={total}
                                 duration={2}
                                 seperator=","
                             />
@@ -83,7 +93,7 @@ const India = ({ dataIndia }) => {
                         <Typography variant="h5">
                             <CountUp
                                 start={0}
-                                end={100}
+                                end={recovered}
                                 duration={2}
                                 seperator=","
                             />
@@ -98,7 +108,7 @@ const India = ({ dataIndia }) => {
                         <Typography variant="h5">
                             <CountUp
                                 start={0}
-                                end={100}
+                                end={deaths}
                                 duration={2}
                                 seperator=","
                             />

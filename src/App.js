@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import styles from './App.module.css'
-import { fetchData, fetchIndia } from './api'
+import { fetchData} from './api'
 import image from './corona.png'
 import Navbar from './components/Navbar/Navbar'
 import Homepage from './components/Homepage/Homepage'
@@ -14,14 +14,12 @@ class App extends React.Component {
     state = {
         data: {},
         country: 'Global',
-        dataIndia: {}
+        
     }
 
     async componentDidMount() {
 
 
-        const fetchIndianData = await fetchIndia();
-        this.setState({ dataIndia: fetchIndianData })
         const fetchedData = await fetchData();
         this.setState({ data: fetchedData })
     }
